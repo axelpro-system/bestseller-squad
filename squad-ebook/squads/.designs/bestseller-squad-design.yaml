@@ -1,0 +1,188 @@
+squad:
+  name: bestseller-squad
+  description: "Generated from analysis of '7 Passos para um BestSeller' PDF."
+  domain: "Best-selling book creation, editorial strategy, Amazon algorithms for books."
+
+analysis:
+  entities:
+    - Best-seller
+    - Reader
+    - Author
+    - Editorial Market
+    - Amazon Algorithm
+    - Problem
+    - Promise
+    - Book Structure
+    - Chapter
+    - Social Proof
+    - Micro-market
+  workflows:
+    - Market Observation
+    - Problem-to-Promise Transformation
+    - Book Structuring
+    - Engaging Chapter Creation
+    - Building Continuity
+    - Authority & Social Proof Generation
+    - Book as an Asset Transformation
+
+recommendations:
+  agents:
+    - id: market-analyst
+      role: "Analyzes market trends, reader behavior, and competition to identify urgent problems and opportunities."
+      commands: ["*analyze-market-trends", "*identify-reader-pains", "*evaluate-competition", "*spot-market-gaps"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: promise-architect
+      role: "Translates identified market problems into clear, desirable, and actionable book promises."
+      commands: ["*craft-book-promise", "*refine-promise-statement", "*test-promise-clarity"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: content-strategist
+      role: "Designs the logical flow and structure of the book, ensuring each chapter contributes to the reader's transformation."
+      commands: ["*outline-book-structure", "*define-chapter-flow", "*ensure-logical-progression"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: chapter-builder
+      role: "Develops engaging chapter content that promotes immediate application and reader engagement."
+      commands: ["*draft-chapter-content", "*integrate-practical-exercises", "*create-micro-victories"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: engagement-designer
+      role: "Implements strategies to maintain reader engagement and ensure continuous progression through the book."
+      commands: ["*design-reader-journey", "*implement-continuity-hooks", "*minimize-drop-off"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: authority-builder
+      role: "Develops the author's perceived authority and generates social proof through the book's content and reader interaction."
+      commands: ["*establish-author-credibility", "*generate-social-proof-elements", "*encourage-reader-reviews"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+    - id: asset-strategist
+      role: "Positions the book as a long-term asset that continuously generates value and opportunities for the author."
+      commands: ["*define-book-as-asset", "*leverage-micro-markets", "*scale-book-impact"]
+      confidence: 0.95
+      user_added: false
+      user_modified: false
+  tasks:
+    - name: analyze-market-trends.md
+      agent: market-analyst
+      entrada: ["market_data", "time_period"]
+      saida: ["market_trends_report"]
+      confidence: 0.95
+    - name: identify-reader-pains.md
+      agent: market-analyst
+      entrada: ["reader_feedback", "target_audience_demographics"]
+      saida: ["reader_pain_points"]
+      confidence: 0.95
+    - name: evaluate-competition.md
+      agent: market-analyst
+      entrada: ["competitor_list", "market_segment"]
+      saida: ["competitor_analysis_report"]
+      confidence: 0.95
+    - name: spot-market-gaps.md
+      agent: market-analyst
+      entrada: ["market_trends_report", "reader_pain_points", "competitor_analysis_report"]
+      saida: ["market_gap_opportunities"]
+      confidence: 0.95
+    - name: craft-book-promise.md
+      agent: promise-architect
+      entrada: ["reader_pain_points", "market_gap_opportunities", "target_audience"]
+      saida: ["initial_book_promise"]
+      confidence: 0.95
+    - name: refine-promise-statement.md
+      agent: promise-architect
+      entrada: ["initial_book_promise", "feedback_on_promise"]
+      saida: ["refined_book_promise"]
+      confidence: 0.95
+    - name: test-promise-clarity.md
+      agent: promise-architect
+      entrada: ["refined_book_promise", "test_audience"]
+      saida: ["promise_clarity_score", "reader_response_summary"]
+      confidence: 0.95
+    - name: outline-book-structure.md
+      agent: content-strategist
+      entrada: ["refined_book_promise", "key_transformations"]
+      saida: ["book_outline"]
+      confidence: 0.95
+    - name: define-chapter-flow.md
+      agent: content-strategist
+      entrada: ["book_outline", "chapter_topics"]
+      saida: ["detailed_chapter_flow"]
+      confidence: 0.95
+    - name: ensure-logical-progression.md
+      agent: content-strategist
+      entrada: ["detailed_chapter_flow", "reader_journey_map"]
+      saida: ["structural_integrity_report"]
+      confidence: 0.95
+    - name: draft-chapter-content.md
+      agent: chapter-builder
+      entrada: ["chapter_details", "research_materials"]
+      saida: ["chapter_draft"]
+      confidence: 0.95
+    - name: integrate-practical-exercises.md
+      agent: chapter-builder
+      entrada: ["chapter_draft", "learning_objectives"]
+      saida: ["chapter_with_exercises"]
+      confidence: 0.95
+    - name: create-micro-victories.md
+      agent: chapter-builder
+      entrada: ["chapter_draft", "reader_transformation_path"]
+      saida: ["chapter_with_micro_victories"]
+      confidence: 0.95
+    - name: design-reader-journey.md
+      agent: engagement-designer
+      entrada: ["book_outline", "chapter_flow", "reader_persona"]
+      saida: ["reader_journey_map"]
+      confidence: 0.95
+    - name: implement-continuity-hooks.md
+      agent: engagement-designer
+      entrada: ["detailed_chapter_flow", "reader_journey_map"]
+      saida: ["book_with_continuity_hooks"]
+      confidence: 0.95
+    - name: minimize-drop-off.md
+      agent: engagement-designer
+      entrada: ["reader_journey_map", "feedback_on_engagement"]
+      saida: ["engagement_optimization_plan"]
+      confidence: 0.95
+    - name: establish-author-credibility.md
+      agent: authority-builder
+      entrada: ["author_background", "book_promise"]
+      saida: ["credibility_strategy"]
+      confidence: 0.95
+    - name: generate-social-proof-elements.md
+      agent: authority-builder
+      entrada: ["reader_testimonials", "case_studies", "book_content"]
+      saida: ["social_proof_plan"]
+      confidence: 0.95
+    - name: encourage-reader-reviews.md
+      agent: authority-builder
+      entrada: ["book_content", "reader_journey_map"]
+      saida: ["review_generation_strategy"]
+      confidence: 0.95
+    - name: define-book-as-asset.md
+      agent: asset-strategist
+      entrada: ["book_content", "author_business_goals"]
+      saida: ["asset_value_proposition"]
+      confidence: 0.95
+    - name: leverage-micro-markets.md
+      agent: asset-strategist
+      entrada: ["book_niche", "target_micro_markets"]
+      saida: ["micro_market_strategy"]
+      confidence: 0.95
+    - name: scale-book-impact.md
+      agent: asset-strategist
+      entrada: ["asset_value_proposition", "micro_market_strategy"]
+      saida: ["long_term_impact_plan"]
+      confidence: 0.95
+
+metadata:
+  created_at: "2026-03-11T16:12:00Z" # Using a placeholder for the timestamp, will replace with actual if needed
+  source_docs: ["C:\Users\ibcap\Documents\Programas	estes\EBOOK-SQUAD\assests\7-passos-para-um-bestseller.pdf"]
+  user_adjustments: 0
+  overall_confidence: 0.95
