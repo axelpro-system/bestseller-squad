@@ -183,6 +183,6 @@ recommendations:
 
 metadata:
   created_at: "2026-03-11T16:12:00Z" # Using a placeholder for the timestamp, will replace with actual if needed
-  source_docs: ["C:\Users\ibcap\Documents\Programas	estes\EBOOK-SQUAD\assests\7-passos-para-um-bestseller.pdf"]
+  source_docs: ["assests/7-passos-para-um-bestseller.pdf"]
   user_adjustments: 0
   overall_confidence: 0.95
