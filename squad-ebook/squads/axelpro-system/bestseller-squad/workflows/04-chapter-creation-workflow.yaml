@@ -1,0 +1,310 @@
+workflow:
+  id: bestseller-chapter-creation
+  name: Chapter Creation Workflow
+  version: "1.0"
+  description: >-
+    Write compelling chapter content with practical exercises and 
+    micro-victories for each chapter of the book.
+  type: content-creation
+  project_types:
+    - book-creation
+    - chapter-writing
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - data/05-book-structure-data.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: DRAFT CHAPTER CONTENT
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: draft_chapter_content
+      phase: 1
+      phase_name: "Escrever Conteúdo do Capítulo"
+      agent: chapter-builder
+      action: draft-chapter-content
+      creates: chapters/[chapter-X].md
+      requires:
+        - data/05-book-structure-data.md
+      elicit: true
+      repeats: for_each_chapter
+      duration_estimate: "45-90 min per chapter"
+      notes: |
+        @chapter-builder executa a tarefa: *draft-chapter-content
+
+        OBJETIVO:
+        Escrever conteúdo central de cada capítulo.
+
+        ESTRUTURA DE CAPÍTULO:
+        1. HOOK (10%): Estatística, pergunta, história, cenário
+        2. CONTEXT (15%): Por que importa, o que vai aprender
+        3. MAIN CONTENT (50%): 3-5 pontos desenvolvidos
+        4. EXAMPLES (15%): Histórias, casos reais
+        5. SUMMARY & ACTION (10%): Resumo + ação imediata
+
+        PRINCÍPIOS:
+        - Uma ideia por parágrafo
+        - Exemplos em cada seção
+        - Voz ativa
+        - "Você" vs "o leitor"
+        - Escaneável (subtítulos, bullets, negrito)
+
+        OUTPUT:
+        - Primeiro rascunho completo
+        - Key takeaways (3-5 pontos)
+        - Chapter hook
+        - Call to action
+
+        Salvar em: chapters/[chapter-X].md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: INTEGRATE PRACTICAL EXERCISES
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: integrate_practical_exercises
+      phase: 2
+      phase_name: "Integrar Exercícios Práticos"
+      agent: chapter-builder
+      action: integrate-practical-exercises
+      creates: chapters/[chapter-X].md (with exercises)
+      requires:
+        - chapters/[chapter-X].md
+      elicits: true
+      repeats: for_each_chapter
+      duration_estimate: "20-30 min per chapter"
+      notes: |
+        @chapter-builder executa a tarefa: *integrate-practical-exercises
+
+        OBJETIVO:
+        Integrar exercícios que garantem aplicação imediata.
+
+        TIPOS DE EXERCÍCIOS:
+        - Reflexão: Perguntas para autoanálise
+        - Ação: Passos concretos para implementar
+        - Worksheet: Formulários estruturados
+        - Quiz: Autoavaliação
+        - Desafio: Projetos práticos maiores
+
+        POSICIONAMENTO:
+        - Após conceito importante: exercício curto
+        - Final de seção: consolidação
+        - Final de capítulo: ação principal
+
+        OUTPUT:
+        - Exercícios integrados no fluxo
+        - Instruções claras
+        - Tempo estimado
+
+        Atualizar: chapters/[chapter-X].md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: CREATE MICRO VICTORIES
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: create_micro_victories
+      phase: 3
+      phase_name: "Criar Micro Vitórias"
+      agent: chapter-builder
+      action: create-micro-victories
+      creates: chapters/[chapter-X].md (with victories)
+      requires:
+        - chapters/[chapter-X].md (with exercises)
+      elicit: true
+      repeats: for_each_chapter
+      duration_estimate: "15-20 min per chapter"
+      notes: |
+        @chapter-builder executa a tarefa: *create-micro-victories
+
+        OBJETIVO:
+        Criar oportunidades de pequenas conquistas que constroem motivação.
+
+        TIPOS DE VITÓRIAS:
+        - Conhecimento: "Agora você entende..."
+        - Ação: "Você acabou de..."
+        - Identidade: "Você é o tipo de pessoa que..."
+        - Preparação: "Você está pronto para..."
+        - Perspectiva: "Agora você vê..."
+
+        POSICIONAMENTO:
+        - Início do capítulo: preview do que vai conquistar
+        - Meio do capítulo: celebrar pequenas dominações
+        - Final do capítulo: resumo de conquistas
+
+        LINGUAGEM:
+        - "Parabéns, você conseguiu!"
+        - "Você dominou..."
+        - "Agora você pode..."
+
+        OUTPUT:
+        - Micro-vitórias integradas
+        - Linguagem de reforço
+        - Progressão de vitórias
+
+        Atualizar: chapters/[chapter-X].md
+        Atualizar: data/06-chapter-metadata.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: REPEAT FOR ALL CHAPTERS
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: repeat_chapters
+      phase: 4
+      phase_name: "Repetir para Todos os Capítulos"
+      agent: chapter-builder
+      action: loop_chapters
+      requires:
+        - data/05-book-structure-data.md
+      elicit: true
+      repeats: until_all_chapters_complete
+      notes: |
+        REPETIR FASES 1-3 PARA CADA CAPÍTULO:
+
+        Fluxo: Capítulo 1 → Capítulo 2 → ... → Capítulo N
+
+        TRACKING:
+        - Marcar capítulo como completo em data/06-chapter-metadata.md
+        - Atualizar word count total
+        - Verificar se todos exercícios integrados
+        - Verificar se todas vitórias integradas
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 5: VALIDATION CHECKLIST
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: chapter_creation_checklist
+      phase: 5
+      phase_name: "Validação: Checklist"
+      agent: squad-master
+      action: validate_phase
+      creates: checklist/04-chapter-creation-checklist.md (completed)
+      requires:
+        - data/06-chapter-metadata.md
+        - chapters/*.md
+      elicit: true
+      duration_estimate: "20 min"
+      notes: |
+        Revisar checklist: checklists/04-chapter-creation-checklist.md
+
+        VERIFICAR:
+        - [ ] Todos os capítulos rascunhados
+        - [ ] Exercícios em cada conceito principal
+        - [ ] 2-3 micro-vitórias por capítulo
+        - [ ] Hooks de continuidade
+        - [ ] Word count adequado (30k-50k total)
+        - [ ] Formato escaneável
+
+        RESULTADO:
+        - APPROVED: Prosseguir para Engagement & Authority
+        - NEEDS WORK: Retornar para correções
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: chapter_creation_complete
+      notes: |
+        ✅ CRIAÇÃO DE CAPÍTULOS COMPLETA!
+
+        Artefatos gerados:
+        ```
+        chapters/
+        ├── chapter-01.md
+        ├── chapter-02.md
+        ├── ...
+        └── chapter-10.md
+
+        data/
+        └── 06-chapter-metadata.md    [Metadata de todos capítulos]
+        ```
+
+        PRÓXIMOS PASSOS:
+        1. Validar checklist: checklists/04-chapter-creation-checklist.md
+        2. Prosseguir para: Engagement & Authority Workflow
+
+        TEMPO TOTAL ESTIMADO: 8-15 horas (dependendo do número de capítulos)
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Chapter Creation] --> B{For each chapter}
+        B --> C[chapter-builder: draft content]
+        C --> D[chapter-builder: add exercises]
+        D --> E[chapter-builder: add victories]
+        E --> B
+        B -->|All chapters done| F{squad-master: Validation}
+        F -->|APPROVED| G[Chapter Creation Complete]
+        F -->|NEEDS WORK| C
+        
+        style G fill:#90EE90
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+        style E fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Escrever Capítulo"
+      agent: "@chapter-builder"
+      command: "*draft-chapter-content"
+      output: "chapters/[chapter-X].md"
+      duration: "45-90 min"
+    fase_2:
+      name: "Integrar Exercícios"
+      agent: "@chapter-builder"
+      command: "*integrate-practical-exercises"
+      output: "chapters/[chapter-X].md (updated)"
+      duration: "20-30 min"
+    fase_3:
+      name: "Criar Vitórias"
+      agent: "@chapter-builder"
+      command: "*create-micro-victories"
+      output: "chapters/[chapter-X].md (updated)"
+      duration: "15-20 min"
+    fase_4:
+      name: "Repetir Capítulos"
+      agent: "@chapter-builder"
+      command: "loop all chapters"
+      output: "all chapters complete"
+      duration: "varies"
+    fase_5:
+      name: "Validação Checklist"
+      agent: "@squad-master"
+      command: "validate checklist"
+      output: "checklist/04-chapter-creation-checklist.md"
+      duration: "20 min"
+
+  time_estimate:
+    minimum: "8 horas"
+    typical: "12 horas"
+    complex_project: "15 horas"
+
+  handoff_prompts:
+    chapter_x_complete: |
+      Capítulo [X] completo com conteúdo, exercícios e vitórias.
+      Próximo: Capítulo [X+1] ou validação final
+
+    all_chapters_complete: |
+      Todos os capítulos completados.
+      Próximo: Validação do checklist (FASE 5)
+
+    workflow_complete: |
+      ✅ CRIAÇÃO DE CAPÍTULOS COMPLETA!
+
+      Próximo: Engagement & Authority Workflow

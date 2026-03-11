@@ -1,0 +1,406 @@
+workflow:
+  id: bestseller-marketing-launch
+  name: Marketing & Launch Execution Workflow
+  version: "1.0"
+  description: >-
+    Execute comprehensive marketing strategy, launch the book to market, 
+    build initial reviews, and establish positioning in target markets.
+  type: content-creation
+  project_types:
+    - book-creation
+    - marketing-execution
+    - book-launch
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - data/09-asset-strategy-data.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: PRE-LAUNCH MARKETING SETUP
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: pre_launch_setup
+      phase: 1
+      phase_name: "Configuração Pré-Lançamento"
+      agent: marketing-strategist
+      action: pre-launch-setup
+      creates: data/10-marketing-launch-data.md (draft)
+      requires:
+        - data/04-book-promise-data.md
+        - data/09-asset-strategy-data.md
+      elicit: true
+      duration_estimate: "45-60 min"
+      notes: |
+        @marketing-strategist executa a tarefa: *pre-launch-setup
+
+        OBJETIVO:
+        Preparar toda a infraestrutura de marketing antes do lançamento.
+
+        CHECKLIST PRÉ-LANÇAMENTO:
+        1. Amazon KDP:
+           - Livro carregado em draft
+           - Metadata otimizada (título, subtítulo, descrição)
+           - Categorias selecionadas (2-3)
+           - 7 palavras-chave
+           - Pricing definido
+
+        2. Presença Online:
+           - Landing page do livro pronta
+           - Email capture configurado
+           - Redes sociais preparadas
+
+        3. Materiais de Marketing:
+           - Batch de imagens para social media
+           - Email sequences escritos
+           - Press release draft
+
+        OUTPUT:
+        - Checklist de prontidão completo
+        - Timeline de lançamento definido
+        - Materiais prontos para uso
+
+        Salvar em: data/10-marketing-launch-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: BUILD LAUNCH TEAM
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: build_launch_team
+      phase: 2
+      phase_name: "Construir Equipe de Lançamento"
+      agent: marketing-strategist
+      action: build-launch-team
+      creates: data/10-marketing-launch-data.md (updated)
+      requires:
+        - data/10-marketing-launch-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @marketing-strategist executa a tarefa: *build-launch-team
+
+        OBJETIVO:
+        Mobilizar rede de apoio para amplificar lançamento.
+
+        EQUIPE DE LANÇAMENTO:
+        1. Early Readers (10-20 pessoas):
+           - Leitores engajados do nicho
+           - Dispostos a deixar review
+           - Deadline: 1 semana antes do lançamento
+
+        2. Affiliates/Partners:
+           - Bloggers do nicho
+           - Podcasts
+           - YouTubers
+           - Newsletters
+
+        3. Social Amplifiers:
+           - Friends & family network
+           - LinkedIn connections
+           - Facebook groups
+           - Twitter/X advocates
+
+        STRATEGIAS DE RECRUITAMENTO:
+        - Email pessoal
+        - Mensagem direta
+        - Oferta de cópia gratuita
+        - Promessa de acknowledgment
+
+        OUTPUT:
+        - Lista de 20+ early readers confirmados
+        - 3-5 parceiros de divulgação
+        - Timeline de comunicação
+
+        Atualizar: data/10-marketing-launch-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: EXECUTE LAUNCH CAMPAIGN
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: execute_launch_campaign
+      phase: 3
+      phase_name: "Executar Campanha de Lançamento"
+      agent: marketing-strategist
+      action: execute-launch-campaign
+      creates: data/10-marketing-launch-data.md (active)
+      requires:
+        - data/10-marketing-launch-data.md
+      elicit: true
+      duration_estimate: "1-2 semanas"
+      notes: |
+        @marketing-strategist executa a tarefa: *execute-launch-campaign
+
+        OBJETIVO:
+        Executar estratégia de lançamento coordenada.
+
+        LANÇAMENTO (Dias 1-7):
+        Dia 1-2: Soft Launch
+        - Enviar para early readers
+        - Ativar rede social
+        - Email para lista existente
+
+        Dia 3-5: Amplificação
+        - Press release
+        - Post em comunidades
+        - Guest posts publicados
+        - Podcast appearances
+
+        Dia 6-7: Push Final
+        - Promoção paid (se budget)
+        - Urgência: "Primeira semana promocional"
+        - Re-engajamento de lista
+
+        CANAIS ATIVOS:
+        - Amazon Ads (se budget)
+        - Facebook/Instagram ads
+        - Email marketing
+        - Social media posts
+        - Guest appearances
+        - Reddit AMA
+        - Book promotion sites
+
+        OUTPUT:
+        - Campanhas ativas
+        - Tráfego direcionado para Amazon
+        - Vendas iniciadas
+        - Reviews sendo coletados
+
+        Atualizar: data/10-marketing-launch-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: REVIEW ACQUISITION STRATEGY
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: review_acquisition_strategy
+      phase: 4
+      phase_name: "Estratégia de Aquisição de Reviews"
+      agent: marketing-strategist
+      action: review-acquisition
+      creates: data/10-marketing-launch-data.md (updated)
+      requires:
+        - data/10-marketing-launch-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @marketing-strategist executa a tarefa: *review-acquisition
+
+        OBJETIVO:
+        Sistematically acquire reviews to build credibility.
+
+        ESTRATÉGIA DE REVIEWS:
+        1. Early Reader Campaign:
+           - Direct ask para early readers
+           - Follow-up no dia 5
+           - Link direto para página de review
+
+        2. Amazon Vine (se elegível):
+           - Registrar produto
+           -等待 Vine invites
+
+        3. Goodreads:
+           - Claim author profile
+           - Post em groups
+           - Request reviews
+
+        4. Ongoing Promotion:
+           - Email signature com call-to-action
+           - Página de "deixe sua review"
+           - InBook promos
+
+        TIMELINE:
+        - Semana 1-2: Foco em early reader reviews (meta: 10+)
+        - Semana 3-4: Ampliar para general audience
+        - Mês 2+: Manter fluxo constante
+
+        OUTPUT:
+        - Meta de reviews por semana
+        - Script de pedido de review
+        - Links para páginas de review
+
+        Atualizar: data/10-marketing-launch-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 5: LAUNCH METRICS & OPTIMIZATION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: launch_metrics_optimization
+      phase: 5
+      phase_name: "Métricas e Otimização do Lançamento"
+      agent: marketing-strategist
+      action: launch-metrics
+      creates: data/10-marketing-launch-data.md (final)
+      requires:
+        - data/10-marketing-launch-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @marketing-strategist executa a tarefa: *launch-metrics
+
+        OBJETIVO:
+        Monitorar métricas de lançamento e otimizar desempenho.
+
+        MÉTRICAS A MONITORAR:
+        1. Vendas:
+           - Unidades vendidas/dia
+           - Revenue diário
+           - Bestseller rank
+           - Category rank
+
+        2. Marketing:
+           - Tráfego para página do livro
+           - Conversion rate
+           - Custo por aquisição
+           - ROI de ads
+
+        3. Engagement:
+           - Reviews novos
+           - Ratings médios
+           - Email opens/clicks
+           - Social engagement
+
+        OTIMIZAÇÃO CONTÍNUA:
+        - Ajustar targeting de ads
+        - Otimizar descrição
+        - Testar preço
+        - Mudar categorias
+
+        OUTPUT:
+        - Dashboard de métricas
+        - Ações de otimização identificadas
+        - Próximos passos planejados
+
+        Atualizar: data/10-marketing-launch-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: marketing_launch_complete
+      notes: |
+        ✅ MARKETING & LANÇAMENTO COMPLETO!
+
+        Artefatos gerados:
+        ```
+        data/
+        ├── 01-market-research-data.md
+        ├── 02-reader-insights-data.md
+        ├── 03-competitive-analysis-data.md
+        ├── 04-book-promise-data.md
+        ├── 05-book-structure-data.md
+        ├── 06-chapter-metadata.md
+        ├── 07-reader-journey-data.md
+        ├── 08-engagement-authority-data.md
+        ├── 09-asset-strategy-data.md
+        └── 10-marketing-launch-data.md    [Marketing & Lançamento]
+
+        chapters/
+        ├── chapter-01.md
+        ├── chapter-02.md
+        └── ... (todos os capítulos)
+
+        checklists/
+        └── [Todos os checklists validados]
+        ```
+
+        🎉 LIVRO NO MERCADO!
+
+        PRÓXIMOS PASSOS:
+        1. Manter monitoramento de métricas
+        2. Continuar aquisição de reviews
+        3. Executar estratégia de micromercados
+        4. Planejar próximas expansões
+
+        TEMPO TOTAL ESTIMADO: 2-4 semanas (execução ativa)
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Marketing & Launch] --> B[marketing-strategist: pre-launch setup]
+        B --> C[marketing-strategist: build launch team]
+        C --> D[marketing-strategist: execute launch campaign]
+        D --> E[marketing-strategist: review acquisition]
+        E --> F[marketing-strategist: metrics & optimization]
+        F --> G[Marketing & Launch Complete!]
+        
+        style G fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+        style E fill:#FFE4B5
+        style F fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Configuração Pré-Lançamento"
+      agent: "@marketing-strategist"
+      command: "*pre-launch-setup"
+      output: "data/10-marketing-launch-data.md"
+      duration: "45-60 min"
+    fase_2:
+      name: "Construir Equipe"
+      agent: "@marketing-strategist"
+      command: "*build-launch-team"
+      output: "data/10-marketing-launch-data.md"
+      duration: "30-45 min"
+    fase_3:
+      name: "Executar Campanha"
+      agent: "@marketing-strategist"
+      command: "*execute-launch-campaign"
+      output: "data/10-marketing-launch-data.md"
+      duration: "1-2 semanas"
+    fase_4:
+      name: "Aquisição de Reviews"
+      agent: "@marketing-strategist"
+      command: "*review-acquisition"
+      output: "data/10-marketing-launch-data.md"
+      duration: "30-45 min"
+    fase_5:
+      name: "Métricas e Otimização"
+      agent: "@marketing-strategist"
+      command: "*launch-metrics"
+      output: "data/10-marketing-launch-data.md"
+      duration: "30-45 min"
+
+  time_estimate:
+    minimum: "1 semana"
+    typical: "2-3 semanas"
+    complex_project: "4+ semanas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Configuração pré-lançamento pronta.
+      Próximo: @marketing-strategist para construir equipe de lançamento (FASE 2)
+
+    fase_2_complete: |
+      Fase 2 completa. Equipe de lançamento mobilizada.
+      Próximo: @marketing-strategist para executar campanha (FASE 3)
+
+    fase_3_complete: |
+      Fase 3 completa. Campanha de lançamento em execução.
+      Próximo: @marketing-strategist para estratégia de reviews (FASE 4)
+
+    fase_4_complete: |
+      Fase 4 completa. Estratégia de reviews definida.
+      Próximo: @marketing-strategist para métricas e otimização (FASE 5)
+
+    workflow_complete: |
+      ✅ MARKETING & LANÇAMENTO COMPLETO!
+
+      Próximo: Monitoramento contínuo e expansões!

@@ -1,0 +1,265 @@
+workflow:
+  id: bestseller-promise-development
+  name: Promise Development Workflow
+  version: "1.0"
+  description: >-
+    Create, refine, and test the book promise to ensure it resonates 
+    with the target audience and differentiates from competition.
+  type: content-creation
+  project_types:
+    - book-creation
+    - promise-strategy
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - data/01-market-research-data.md
+      - data/02-reader-insights-data.md
+      - data/03-competitive-analysis-data.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: CRAFT BOOK PROMISE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: craft_book_promise
+      phase: 1
+      phase_name: "Criar Promessa do Livro"
+      agent: promise-architect
+      action: craft-book-promise
+      creates: data/04-book-promise-data.md (draft)
+      requires:
+        - data/02-reader-insights-data.md
+        - data/01-market-research-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @promise-architect executa a tarefa: *craft-book-promise
+
+        OBJETIVO:
+        Criar uma promessa clara, específica e compelling.
+
+        ESTRUTURA DA PROMESSA:
+        [AUDIÊNCIA] que quer [RESULTADO] mas [OBSTÁCULO],
+        vai [TRANSFORMAÇÃO] em [TIMEFRAME]
+        sem [CUSTO/DOR COMUM]
+
+        CRIAR:
+        - Mínimo 5 versões da promessa
+        - Declaração de unicidade
+        - Apelo emocional identificado
+
+        OUTPUT:
+        - Promessa inicial draftada
+        - Componentes da promessa definidos
+        - Audiência-alvo validada
+
+        Salvar em: data/04-book-promise-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: REFINE PROMISE STATEMENT
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: refine_promise_statement
+      phase: 2
+      phase_name: "Refinar Declaração da Promessa"
+      agent: promise-architect
+      action: refine-promise-statement
+      creates: data/04-book-promise-data.md (refined)
+      requires:
+        - data/04-book-promise-data.md (draft)
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @promise-architect executa a tarefa: *refine-promise-statement
+
+        OBJETIVO:
+        Refinar a promessa para máximo impacto e clareza.
+
+        TESTES APLICAR:
+        - Clareza: Entendível em 5 segundos?
+        - Emocional: Cria desejo?
+        - Diferenciação: Único vs concorrência?
+        - Credibilidade: Entregável?
+
+        REFINAR:
+        - Eliminar palavras fracas (aprender, conhecer)
+        - Adicionar especificidade (números, timeframe)
+        - Criar 3-5 opções de título
+        - Definir posicionamento
+
+        OUTPUT:
+        - Promessa refinada
+        - Título opções com rationale
+        - Declaração de posicionamento
+
+        Atualizar: data/04-book-promise-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: TEST PROMISE CLARITY
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: test_promise_clarity
+      phase: 3
+      phase_name: "Testar Clareza da Promessa"
+      agent: promise-architect
+      action: test-promise-clarity
+      creates: data/04-book-promise-data.md (validated)
+      requires:
+        - data/04-book-promise-data.md (refined)
+      elicit: true
+      duration_estimate: "30-60 min"
+      notes: |
+        @promise-architect executa a tarefa: *test-promise-clarity
+
+        OBJETIVO:
+        Testar a promessa com pessoas reais do público-alvo.
+
+        METODOLOGIA:
+        - 5-10 pessoas do público-alvo
+        - Mostrar promessa (título + subtítulo)
+        - Perguntas estruturadas
+
+        PERGUNTAS:
+        - "O que você acha que este livro ensina?"
+        - "Numa escala 1-10, quão interessante?"
+        - "Você compraria este livro?"
+
+        METRICAS:
+        - Comprehension rate: >80%
+        - Interest score: >7/10
+        - Purchase intent: >50%
+
+        OUTPUT:
+        - Scores de teste
+        - Feedback qualitativo
+        - Título validado
+
+        Atualizar: data/04-book-promise-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: VALIDATION CHECKLIST
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: promise_validation_checklist
+      phase: 4
+      phase_name: "Validação: Checklist"
+      agent: squad-master
+      action: validate_phase
+      creates: checklist/02-promise-validation-checklist.md (completed)
+      requires:
+        - data/04-book-promise-data.md
+      elicit: true
+      duration_estimate: "15 min"
+      notes: |
+        Revisar checklist: checklists/02-promise-validation-checklist.md
+
+        VERIFICAR:
+        - [ ] Promessa segue estrutura completa
+        - [ ] Passou em todos os 4 testes
+        - [ ] Título validado com público
+        - [ ] Scores atingidos (claridade 80%, interesse 7+, intenção 50%)
+
+        RESULTADO:
+        - APPROVED: Prosseguir para Content Structure
+        - NEEDS WORK: Retornar para refinamento
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: promise_development_complete
+      notes: |
+        ✅ DESENVOLVIMENTO DA PROMESSA COMPLETO!
+
+        Artefatos gerados:
+        ```
+        data/
+        └── 04-book-promise-data.md    [Promessa validada]
+        ```
+
+        PRÓXIMOS PASSOS:
+        1. Validar checklist: checklists/02-promise-validation-checklist.md
+        2. Prosseguir para: Content Structure Workflow
+
+        TEMPO TOTAL ESTIMADO: 1.5-2.5 horas
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Promise Development] --> B[promise-architect: craft promise]
+        B --> C[promise-architect: refine promise]
+        C --> D[promise-architect: test promise]
+        D --> E{squad-master: Validation}
+        E -->|APPROVED| F[Promise Development Complete]
+        E -->|NEEDS WORK| C
+        
+        style F fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Criar Promessa"
+      agent: "@promise-architect"
+      command: "*craft-book-promise"
+      output: "data/04-book-promise-data.md"
+      duration: "30-45 min"
+    fase_2:
+      name: "Refinar Promessa"
+      agent: "@promise-architect"
+      command: "*refine-promise-statement"
+      output: "data/04-book-promise-data.md"
+      duration: "20-30 min"
+    fase_3:
+      name: "Testar Promessa"
+      agent: "@promise-architect"
+      command: "*test-promise-clarity"
+      output: "data/04-book-promise-data.md"
+      duration: "30-60 min"
+    fase_4:
+      name: "Validação Checklist"
+      agent: "@squad-master"
+      command: "validate checklist"
+      output: "checklist/02-promise-validation-checklist.md"
+      duration: "15 min"
+
+  time_estimate:
+    minimum: "1.5 horas"
+    typical: "2 horas"
+    complex_project: "2.5 horas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Promessa inicial criada.
+      Próximo: @promise-architect para refinar promessa (FASE 2)
+
+    fase_2_complete: |
+      Fase 2 completa. Promessa refinada com títulos.
+      Próximo: @promise-architect para testar com audiência (FASE 3)
+
+    fase_3_complete: |
+      Fase 3 completa. Promessa testada e validada.
+      Próximo: Validação do checklist (FASE 4)
+
+    workflow_complete: |
+      ✅ DESENVOLVIMENTO DA PROMESSA COMPLETO!
+
+      Próximo: Content Structure Workflow

@@ -1,0 +1,277 @@
+workflow:
+  id: bestseller-content-structure
+  name: Content Structure Workflow
+  version: "1.0"
+  description: >-
+    Design the book's logical flow and structure, ensuring each chapter 
+    contributes to the reader's transformation.
+  type: content-creation
+  project_types:
+    - book-creation
+    - structure-design
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - data/04-book-promise-data.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: OUTLINE BOOK STRUCTURE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: outline_book_structure
+      phase: 1
+      phase_name: "Estruturar Estrutura do Livro"
+      agent: content-strategist
+      action: outline-book-structure
+      creates: data/05-book-structure-data.md (draft)
+      requires:
+        - data/04-book-promise-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @content-strategist executa a tarefa: *outline-book-structure
+
+        OBJETIVO:
+        Criar estrutura de alto nível do livro que sustenta a promessa.
+
+        ESTRUTURA CLÁSSICA (3 PARTES):
+        PARTE 1: FUNDAMENTOS
+        - O problema (confirma a dor)
+        - Por que soluções anteriores falharam
+        - Introdução à metodologia
+
+        PARTE 2: A TRANSFORMAÇÃO
+        - Passos da metodologia
+        - Aplicação prática
+
+        PARTE 3: CONSOLIDAÇÃO
+        - Superando obstáculos
+        - Manutenção de resultados
+
+        DEFINIR:
+        - 3-5 partes principais
+        - Propósito de cada parte
+        - Transformação do leitor
+        - Extensão-alvo (30k-50k palavras)
+
+        OUTPUT:
+        - Estrutura de partes definida
+        - Mapa de transformação
+        - Contagem de capítulos
+
+        Salvar em: data/05-book-structure-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: DEFINE CHAPTER FLOW
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: define_chapter_flow
+      phase: 2
+      phase_name: "Definir Fluxo de Capítulos"
+      agent: content-strategist
+      action: define-chapter-flow
+      creates: data/05-book-structure-data.md (detailed)
+      requires:
+        - data/05-book-structure-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @content-strategist executa a tarefa: *define-chapter-flow
+
+        OBJETIVO:
+        Detalhar o fluxo de cada capítulo garantindo contribuição para jornada.
+
+        PARA CADA CAPÍTULO:
+        - Título de trabalho
+        - Propósito (o que entrega)
+        - Conteúdo principal (3-5 pontos)
+        - Conexão com anterior e próximo
+        - Hook de continuidade
+
+        ANATOMIA DE CAPÍTULO:
+        1. HOOK (10%): Impacto inicial
+        2. CONTEXT (20%): Contexto do que será coberto
+        3. CONTENT (50%): Conteúdo principal
+        4. EXAMPLE (15%): Casos reais
+        5. ACTION (5%): Ação imediata
+
+        OUTPUT:
+        - Todos os capítulos detalhados
+        - Word count por capítulo
+        - Dependencies definidas
+        - Ritmo analisado
+
+        Atualizar: data/05-book-structure-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: ENSURE LOGICAL PROGRESSION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: ensure_logical_progression
+      phase: 3
+      phase_name: "Garantir Progressão Lógica"
+      agent: content-strategist
+      action: ensure-logical-progression
+      creates: data/05-book-structure-data.md (validated)
+      requires:
+        - data/05-book-structure-data.md
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @content-strategist executa a tarefa: *ensure-logical-progression
+
+        OBJETIVO:
+        Validar toda a estrutura para garantir progressão lógica.
+
+        CHECKLIST DE INTEGRIDADE:
+        - Progressão de conhecimento: contexto antes de complexidade
+        - Progressão emocional: hook → tensão → resolução
+        - Progressão de ação: simples para complexo
+
+        IDENTIFICAR PROBLEMAS:
+        - Gaps: Informações faltando
+        - Jumps: Saltos muito grandes
+        - Loops: Repetição desnecessária
+        - Dead ends: Capítulos que não preparam para próximo
+
+        SCORE:
+        - Avaliar 1-10 em clareza, dificuldade, coesão
+        - Meta: >8/10
+
+        OUTPUT:
+        - Score de integridade estrutural
+        - Lista de correções necessárias
+        - Estrutura validada
+
+        Atualizar: data/05-book-structure-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: VALIDATION CHECKLIST
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: content_structure_checklist
+      phase: 4
+      phase_name: "Validação: Checklist"
+      agent: squad-master
+      action: validate_phase
+      creates: checklist/03-content-structure-checklist.md (completed)
+      requires:
+        - data/05-book-structure-data.md
+      elicit: true
+      duration_estimate: "15 min"
+      notes: |
+        Revisar checklist: checklists/03-content-structure-checklist.md
+
+        VERIFICAR:
+        - [ ] 3-5 partes principais definidas
+        - [ ] Cada parte contribui para promessa
+        - [ ] 8-15 capítulos estruturados
+        - [ ] Fluxo de capítulos detalhado
+        - [ ] Progressão lógica validada
+        - [ ] Score de integridade >8/10
+
+        RESULTADO:
+        - APPROVED: Prosseguir para Chapter Creation
+        - NEEDS WORK: Retornar para correções
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: content_structure_complete
+      notes: |
+        ✅ ESTRUTURA DE CONTEÚDO COMPLETA!
+
+        Artefatos gerados:
+        ```
+        data/
+        └── 05-book-structure-data.md    [Estrutura validada]
+        ```
+
+        PRÓXIMOS PASSOS:
+        1. Validar checklist: checklists/03-content-structure-checklist.md
+        2. Prosseguir para: Chapter Creation Workflow
+
+        TEMPO TOTAL ESTIMADO: 1.5-2 horas
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Content Structure] --> B[content-strategist: outline structure]
+        B --> C[content-strategist: define chapter flow]
+        C --> D[content-strategist: ensure logical progression]
+        D --> E{squad-master: Validation}
+        E -->|APPROVED| F[Content Structure Complete]
+        E -->|NEEDS WORK| B
+        
+        style F fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Estruturar Livro"
+      agent: "@content-strategist"
+      command: "*outline-book-structure"
+      output: "data/05-book-structure-data.md"
+      duration: "30-45 min"
+    fase_2:
+      name: "Definir Fluxo"
+      agent: "@content-strategist"
+      command: "*define-chapter-flow"
+      output: "data/05-book-structure-data.md"
+      duration: "30-45 min"
+    fase_3:
+      name: "Validar Progressão"
+      agent: "@content-strategist"
+      command: "*ensure-logical-progression"
+      output: "data/05-book-structure-data.md"
+      duration: "20-30 min"
+    fase_4:
+      name: "Validação Checklist"
+      agent: "@squad-master"
+      command: "validate checklist"
+      output: "checklist/03-content-structure-checklist.md"
+      duration: "15 min"
+
+  time_estimate:
+    minimum: "1.5 horas"
+    typical: "2 horas"
+    complex_project: "2.5 horas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Estrutura de partes definida.
+      Próximo: @content-strategist para detalhar capítulos (FASE 2)
+
+    fase_2_complete: |
+      Fase 2 completa. Fluxo de capítulos detalhado.
+      Próximo: @content-strategist para validar progressão (FASE 3)
+
+    fase_3_complete: |
+      Fase 3 completa. Estrutura validada com score.
+      Próximo: Validação do checklist (FASE 4)
+
+    workflow_complete: |
+      ✅ ESTRUTURA DE CONTEÚDO COMPLETA!
+
+      Próximo: Chapter Creation Workflow

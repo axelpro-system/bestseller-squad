@@ -1,0 +1,302 @@
+workflow:
+  id: bestseller-market-analysis
+  name: Market Analysis Workflow
+  version: "1.0"
+  description: >-
+    Complete market analysis workflow to identify trends, reader pains, 
+    competition, and market gaps. Foundation for the entire bestseller creation process.
+  type: content-creation
+  project_types:
+    - book-creation
+    - bestseller-strategy
+    - market-research
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    action_types:
+      task-reference: "Action references an existing task file"
+      agent-command: "Action references an agent-level command"
+      workflow-action: "Action is a workflow orchestration step"
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: MARKET TRENDS ANALYSIS
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: analyze_market_trends
+      phase: 1
+      phase_name: "Análise de Tendências de Mercado"
+      agent: market-analyst
+      action: analyze-market-trends
+      creates: data/01-market-research-data.md
+      elicit: true
+      duration_estimate: "30-60 min"
+      notes: |
+        @market-analyst executa a tarefa: *analyze-market-trends
+
+        OBIETIVO:
+        Identificar tendências atuais do mercado editorial e de nicho.
+
+        ANALISAR:
+        - Listas de bestsellers da Amazon
+        - Google Trends para palavras-chave do nicho
+        - Goodreads: lacunas em reviews de livros concorrentes
+        - Redes sociais: conversas em fóruns, Reddit, Facebook groups
+        - Relatórios de indústria
+
+        OUTPUT:
+        - 3+ tópicos em tendência identificados
+        - Fase do ciclo de cada tendência
+        - Dados quantitativos (números de vendas, rankings)
+        - Sazonalidades identificadas
+
+        Salvar em: data/01-market-research-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: READER PAINS IDENTIFICATION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: identify_reader_pains
+      phase: 2
+      phase_name: "Identificação de Dores do Leitor"
+      agent: market-analyst
+      action: identify-reader-pains
+      creates: data/02-reader-insights-data.md
+      elicits: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @market-analyst executa a tarefa: *identify-reader-pains
+
+        OBJETIVO:
+        Identificar problemas urgentes, frustrações e desejos da audiência-alvo.
+
+        ANALISAR:
+        - Reddit: reclamações, "how do I...", "I'm struggling with..."
+        - Facebook Groups: monitoramento de discussões
+        - Amazon Reviews: 1-2 estrelas de livros concorrentes
+        - Quora: perguntas recorrentes
+        - Fóruns: comunidades específicas do nicho
+
+        OUTPUT:
+        - Perfil demográfico do público-alvo
+        - 10+ dores específicas identificadas
+        - Intensidade de cada dor (1-10)
+        - Linguagem exata do leitor (quotes)
+        - Dores emocionais identificadas
+
+        Salvar em: data/02-reader-insights-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: COMPETITOR EVALUATION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: evaluate_competition
+      phase: 3
+      phase_name: "Avaliação da Concorrência"
+      agent: market-analyst
+      action: evaluate-competition
+      creates: data/03-competitive-analysis-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @market-analyst executa a tarefa: *evaluate-competition
+
+        OBJETIVO:
+        Avaliar concorrentes diretos e indiretos para identificar vantagens competitivas.
+
+        ANALISAR:
+        - 10+ títulos concorrentes
+        - Título, autor, ano de publicação
+        - Número de avaliações e rating
+        - Bestseller ranking
+        - Preço
+        - Promessa do livro
+        - Pontos fortes e fracos nas reviews
+
+        OUTPUT:
+        - Análise SWOT dos principais concorrentes
+        - Promessas concorrentes mapeadas
+        - Pontos fracos comuns identificados
+        - Oportunidades de gap
+
+        Salvar em: data/03-competitive-analysis-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: MARKET GAPS IDENTIFICATION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: spot_market_gaps
+      phase: 4
+      phase_name: "Identificação de Lacunas de Mercado"
+      agent: market-analyst
+      action: spot-market-gaps
+      creates: data/01-market-research-data.md (update)
+      requires:
+        - data/01-market-research-data.md
+        - data/02-reader-insights-data.md
+        - data/03-competitive-analysis-data.md
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @market-analyst executa a tarefa: *spot-market-gaps
+
+        OBJETIVO:
+        Identificar oportunidades inexploradas ou nichos subatendidos.
+
+        CRUZAR DADOS:
+        - O que está crescendo? (tendências)
+        - O que pessoas querem resolver? (dores)
+        - O que está faltando? (concorrência)
+
+        OUTPUT:
+        - 5+ oportunidades de gap identificadas
+        - Cada gap validado com evidências
+        - Score de prioridade (7+ mínimo)
+        - Público-alvo específico para cada gap
+        - Ângulo único definido
+
+        Atualizar: data/01-market-research-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 5: CHECKLIST VALIDATION
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: market_analysis_checklist
+      phase: 5
+      phase_name: "Validação: Checklist"
+      agent: squad-master
+      action: validate_phase
+      creates: checklist/01-market-analysis-checklist.md (completed)
+      requires:
+        - data/01-market-research-data.md
+        - data/02-reader-insights-data.md
+        - data/03-competitive-analysis-data.md
+      elicit: true
+      duration_estimate: "15 min"
+      notes: |
+        Revisar checklist: checklists/01-market-analysis-checklist.md
+
+        VERIFICAR:
+        - [ ] Todas as 4 tarefas de análise de mercado completas
+        - [ ] Dados quantitativos incluem números específicos
+        - [ ] 10+ dores do leitor identificadas
+        - [ ] 10+ concorrentes analisados
+        - [ ] 5+ lacunas de mercado identificadas
+
+        RESULTADO:
+        - APPROVED: Prosseguir para Promise
+        - NEEDS WORK: Retornar para correções
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: market_analysis_complete
+      notes: |
+        ✅ ANÁLISE DE MERCADO COMPLETA!
+
+        Artefatos gerados:
+        ```
+        data/
+        ├── 01-market-research-data.md    [Tendências + Gaps]
+        ├── 02-reader-insights-data.md     [Dores do Leitor]
+        └── 03-competitive-analysis-data.md [Concorrência]
+        ```
+
+        PRÓXIMOS PASSOS:
+        1. Validar checklist: checklists/01-market-analysis-checklist.md
+        2. Prosseguir para: Promise Development Workflow
+
+        TEMPO TOTAL ESTIMADO: 2-3 horas
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Market Analysis] --> B[market-analyst: analyze trends]
+        B --> C[market-analyst: identify reader pains]
+        C --> D[market-analyst: evaluate competition]
+        D --> E[market-analyst: spot market gaps]
+        E --> F{squad-master: Validation}
+        F -->|APPROVED| G[Market Analysis Complete]
+        F -->|NEEDS WORK| B
+        
+        style G fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+        style E fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Análise de Tendências"
+      agent: "@market-analyst"
+      command: "*analyze-market-trends"
+      output: "data/01-market-research-data.md"
+      duration: "30-60 min"
+    fase_2:
+      name: "Identificação de Dores"
+      agent: "@market-analyst"
+      command: "*identify-reader-pains"
+      output: "data/02-reader-insights-data.md"
+      duration: "30-45 min"
+    fase_3:
+      name: "Avaliação da Concorrência"
+      agent: "@market-analyst"
+      command: "*evaluate-competition"
+      output: "data/03-competitive-analysis-data.md"
+      duration: "30-45 min"
+    fase_4:
+      name: "Identificação de Gaps"
+      agent: "@market-analyst"
+      command: "*spot-market-gaps"
+      output: "data/01-market-research-data.md (update)"
+      duration: "20-30 min"
+    fase_5:
+      name: "Validação Checklist"
+      agent: "@squad-master"
+      command: "validate checklist"
+      output: "checklist/01-market-analysis-checklist.md"
+      duration: "15 min"
+
+  time_estimate:
+    minimum: "2 horas"
+    typical: "2.5 horas"
+    complex_project: "3 horas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Dados de tendências coletados.
+      Próximo: @market-analyst para identificar dores do leitor (FASE 2)
+
+    fase_2_complete: |
+      Fases 1-2 completas. Tendências e dores identificadas.
+      Próximo: @market-analyst para avaliar concorrência (FASE 3)
+
+    fase_3_complete: |
+      Fases 1-3 completas. Concorrência analisada.
+      Próximo: @market-analyst para identificar lacunas (FASE 4)
+
+    fase_4_complete: |
+      Fases 1-4 completas. Análise de mercado finalizada.
+      Próximo: Validação do checklist (FASE 5)
+
+    workflow_complete: |
+      ✅ ANÁLISE DE MERCADO COMPLETA!
+
+      Próximo: Promise Development Workflow

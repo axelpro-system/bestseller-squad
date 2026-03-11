@@ -1,0 +1,63 @@
+name: bestseller-squad
+version: 1.0.0
+description: "Generated from analysis of '7 Passos para um BestSeller' PDF."
+author: axelpro-system
+license: MIT
+slashPrefix: bestseller
+
+aiox:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  tasks:
+    - analyze-market-trends.md
+    - identify-reader-pains.md
+    - evaluate-competition.md
+    - spot-market-gaps.md
+    - craft-book-promise.md
+    - refine-promise-statement.md
+    - test-promise-clarity.md
+    - outline-book-structure.md
+    - define-chapter-flow.md
+    - ensure-logical-progression.md
+    - draft-chapter-content.md
+    - integrate-practical-exercises.md
+    - create-micro-victories.md
+    - design-reader-journey.md
+    - implement-continuity-hooks.md
+    - minimize-drop-off.md
+    - establish-author-credibility.md
+    - generate-social-proof-elements.md
+    - encourage-reader-reviews.md
+    - define-book-as-asset.md
+    - leverage-micro-markets.md
+    - scale-book-impact.md
+  agents:
+    - market-analyst.md
+    - promise-architect.md
+    - content-strategist.md
+    - chapter-builder.md
+    - engagement-designer.md
+    - authority-builder.md
+    - asset-strategist.md
+  workflows: []
+  checklists: []
+  templates: []
+  tools: []
+  scripts: []
+
+config:
+  extends: extend
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - custom
+  - automation

@@ -1,0 +1,300 @@
+workflow:
+  id: bestseller-asset-launch
+  name: Asset Strategy & Launch Workflow
+  version: "1.0"
+  description: >-
+    Position the book as a strategic asset, develop micro-market strategy, 
+    plan scaling, and prepare for final launch.
+  type: content-creation
+  project_types:
+    - book-creation
+    - asset-strategy
+    - book-launch
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - data/08-engagement-authority-data.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: DEFINE BOOK AS ASSET
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: define_book_as_asset
+      phase: 1
+      phase_name: "Definir Livro como Ativo"
+      agent: asset-strategist
+      action: define-book-as-asset
+      creates: data/09-asset-strategy-data.md (draft)
+      requires:
+        - data/04-book-promise-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @asset-strategist executa a tarefa: *define-book-as-asset
+
+        OBJETIVO:
+        Articular o livro como ativo estratégico de longo prazo.
+
+        CAMADAS DE ATIVO:
+        1. Produto Principal: Livro em diferentes formatos
+        2. Produtos Derivados: Workbook, resumo, áudio
+        3. Serviços: Consultoria, mentoria, speaking
+        4. Comunidade: Grupo de leitores, membership
+        5. Expansão: Livro 2, série, licenciamento
+
+        DEFINIR:
+        - Valor do livro além de vendas
+        - Correntes de receita
+        - Extensões planejadas
+        - Posicionamento no funil
+
+        OUTPUT:
+        - Proposição de valor do ativo
+        - Revenue streams identificados
+        - Estratégia de posicionamento
+
+        Salvar em: data/09-asset-strategy-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: LEVERAGE MICRO MARKETS
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: leverage_micro_markets
+      phase: 2
+      phase_name: "Explorar Micromercados"
+      agent: asset-strategist
+      action: leverage-micro-markets
+      creates: data/09-asset-strategy-data.md (updated)
+      requires:
+        - data/09-asset-strategy-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @asset-strategist executa a tarefa: *leverage-micro-markets
+
+        OBJETIVO:
+        Desenvolver estratégia para dominar micromercados específicos.
+
+        MICROMERCADOS:
+        - Por profissão: dentistas, arquitetos, advogados
+        - Por indústria: healthcare, tech, education
+        - Por tamanho: startups, SMB, enterprise
+        - Por geografia: região, tamanho da cidade
+        - Por estágio: iniciantes, intermediários, avançados
+
+        ESTRATÉGIAS:
+        - Versões customizadas: mesmo conteúdo, exemplos específicos
+        - Marketing segmentado: landing pages específicas
+        - Parcerias: associações profissionais
+        - Conteúdo derivado: artigos para publicações do nicho
+
+        MATRIZ DE PRIORIZAÇÃO:
+        - Alto pagamento + Alta acessibilidade = FOCAR PRIMEIRO
+        - Baixa competição = OPORTUNIDADE
+
+        OUTPUT:
+        - 3+ micromercados identificados
+        - Estratégia de customização
+        - Parcerias mapeadas
+        - Roadmap de expansão
+
+        Atualizar: data/09-asset-strategy-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: SCALE BOOK IMPACT
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: scale_book_impact
+      phase: 3
+      phase_name: "Escalar Impacto do Livro"
+      agent: asset-strategist
+      action: scale-book-impact
+      creates: data/09-asset-strategy-data.md (final)
+      requires:
+        - data/09-asset-strategy-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @asset-strategist executa a tarefa: *scale-book-impact
+
+        OBJETIVO:
+        Criar plano para escalar impacto e alcance ao longo do tempo.
+
+        HORIZONTES:
+        1. Lançamento (0-6 meses): Estabelecer presença, reviews iniciais
+        2. Crescimento (6-18 meses): Expandir micromercados, diversificar
+        3. Escala (18+ meses): Maximizar presença, licenciamento
+
+        INICIATIVAS:
+        - Expansão de formato: áudio, físico, bundle
+        - Expansão de idioma: traduções
+        - Expansão de canais: Amazon, site próprio, livrarias
+        - Expansão de conteúdo: livro 2, série, artigos
+        - Expansão de modelo: curso, membership
+
+        DIVERSIFICAÇÃO:
+        - Canais: não depender de apenas um
+        - Produtos: múltiplos fluxos de receita
+        - Públicos: original + novos segmentos
+
+        OUTPUT:
+        - Metas 6mo/1yr/3yr definidas
+        - Iniciativas priorizadas
+        - Estratégia de diversificação
+        - Métricas de monitoramento
+
+        Atualizar: data/09-asset-strategy-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: FINAL QUALITY CHECK
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: final_quality_check
+      phase: 4
+      phase_name: "Verificação Final de Qualidade"
+      agent: squad-master
+      action: final_review
+      creates: checklist/06-book-quality-launch-checklist.md
+      requires:
+        - data/09-asset-strategy-data.md
+        - chapters/*.md
+      elicit: true
+      duration_estimate: "30-60 min"
+      notes: |
+        REVISÃO FINAL COMPLETA:
+
+        VERIFICAR:
+        - [ ] Todos os capítulos completos
+        - [ ] Edição de conteúdo feita
+        - [ ] Formatação consistente
+        - [ ] Revisão final feita
+        - [ ] Metadata completa
+        - [ ] Front/back matter pronto
+
+        PUBLICACAO:
+        - [ ] Capa projetada
+        - [ ] Descrição escrita
+        - [ ] Preço definido
+        - [ ] Categorias selecionadas
+        - [ ] Palavras-chave otimizadas
+        - [ ] Amazon KDP pronto
+
+        RESULTADO:
+        - READY: Livros para lançamento
+        - NEEDS WORK: Correções necessárias
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: bestseller_creation_complete
+      notes: |
+        ✅ CRIAÇÃO DE BESTSELLER COMPLETA!
+
+        Artefatos gerados:
+        ```
+        data/
+        ├── 01-market-research-data.md
+        ├── 02-reader-insights-data.md
+        ├── 03-competitive-analysis-data.md
+        ├── 04-book-promise-data.md
+        ├── 05-book-structure-data.md
+        ├── 06-chapter-metadata.md
+        ├── 07-reader-journey-data.md
+        ├── 08-engagement-authority-data.md
+        └── 09-asset-strategy-data.md    [Estratégia de ativo]
+
+        chapters/
+        ├── chapter-01.md
+        ├── chapter-02.md
+        └── ... (todos os capítulos)
+
+        checklists/
+        └── [Todos os checklists validados]
+        ```
+
+        🎉 LIVRO PRONTO PARA LANÇAMENTO!
+
+        TEMPO TOTAL ESTIMADO: 15-25 horas (completo)
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Asset & Launch] --> B[asset-strategist: define book as asset]
+        B --> C[asset-strategist: leverage micro markets]
+        C --> D[asset-strategist: scale book impact]
+        D --> E[squad-master: final quality check]
+        E -->|READY| F[Bestseller Creation Complete!]
+        E -->|NEEDS WORK| B
+        
+        style F fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Definir como Ativo"
+      agent: "@asset-strategist"
+      command: "*define-book-as-asset"
+      output: "data/09-asset-strategy-data.md"
+      duration: "30-45 min"
+    fase_2:
+      name: "Explorar Micromercados"
+      agent: "@asset-strategist"
+      command: "*leverage-micro-markets"
+      output: "data/09-asset-strategy-data.md"
+      duration: "30-45 min"
+    fase_3:
+      name: "Escalar Impacto"
+      agent: "@asset-strategist"
+      command: "*scale-book-impact"
+      output: "data/09-asset-strategy-data.md"
+      duration: "30-45 min"
+    fase_4:
+      name: "Verificação Final"
+      agent: "@squad-master"
+      command: "final review"
+      output: "checklist/06-book-quality-launch-checklist.md"
+      duration: "30-60 min"
+
+  time_estimate:
+    minimum: "2 horas"
+    typical: "2.5 horas"
+    complex_project: "3 horas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Livro definido como ativo estratégico.
+      Próximo: @asset-strategist para explorar micromercados (FASE 2)
+
+    fase_2_complete: |
+      Fase 2 completa. Estratégia de micromercados definida.
+      Próximo: @asset-strategist para planejar escala (FASE 3)
+
+    fase_3_complete: |
+      Fase 3 completa. Plano de impacto de longo prazo definido.
+      Próximo: Verificação final de qualidade (FASE 4)
+
+    workflow_complete: |
+      🎉 CRIAÇÃO DE BESTSELLER COMPLETA!
+
+      Próximo: Lançamento do livro!

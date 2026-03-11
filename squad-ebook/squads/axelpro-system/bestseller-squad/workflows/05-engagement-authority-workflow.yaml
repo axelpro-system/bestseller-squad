@@ -1,0 +1,407 @@
+workflow:
+  id: bestseller-engagement-authority
+  name: Engagement & Authority Workflow
+  version: "1.0"
+  description: >-
+    Design reader journey, implement engagement hooks, establish author 
+    credibility, generate social proof, and create review strategy.
+  type: content-creation
+  project_types:
+    - book-creation
+    - engagement-strategy
+    - authority-building
+
+  metadata:
+    elicit: true
+    confirmation_required: true
+    requires:
+      - chapters/*.md
+      - data/06-chapter-metadata.md
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              WORKFLOW SEQUENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  sequence:
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 1: DESIGN READER JOURNEY
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: design_reader_journey
+      phase: 1
+      phase_name: "Projetar Jornada do Leitor"
+      agent: engagement-designer
+      action: design-reader-journey
+      creates: data/07-reader-journey-data.md
+      requires:
+        - data/05-book-structure-data.md
+        - data/06-chapter-metadata.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @engagement-designer executa a tarefa: *design-reader-journey
+
+        OBJETIVO:
+        Mapear jornada completa do leitor através do livro.
+
+        FASES DA JORNADA:
+        1. Atração (Capítulos 1-2): Descoberta, validação, conexão
+        2. Compromisso (Capítulos 3-5): Aprofundamento, pequenas vitórias
+        3. Transformação (Capítulos 6-8): Aplicação, desafios maiores
+        4. Consolidação (Capítulos 9-10): Integração, preparação
+
+        DEFINIR:
+        - Curva emocional por capítulo
+        - Touchpoints de engajamento
+        - Curva de compromisso
+        - Pontos de risco mapeados
+
+        OUTPUT:
+        - Jornada emocional documentada
+        - Touchpoints identificados
+        - Riscos mapeados
+
+        Salvar em: data/07-reader-journey-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 2: IMPLEMENT CONTINUITY HOOKS
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: implement_continuity_hooks
+      phase: 2
+      phase_name: "Implementar Ganchos de Continuidade"
+      agent: engagement-designer
+      action: implement-continuity-hooks
+      creates: data/07-reader-journey-data.md (updated)
+      requires:
+        - data/07-reader-journey-data.md
+      elicit: true
+      duration_estimate: "30-45 min"
+      notes: |
+        @engagement-designer executa a tarefa: *implement-continuity-hooks
+
+        OBJETIVO:
+        Integrar elementos estratégicos que criam antecipação.
+
+        TIPOS DE HOOKS:
+        - Curiosity: "Mas a história não termina aí..."
+        - Promise: "No próximo capítulo, você vai..."
+        - Problem: "Isso leva a um problema maior..."
+        - Story: "A história de Maria ilustra..."
+        - Transformation: "Imagino que agora você está..."
+        - Controversy: "A maioria pensa X, mas..."
+
+        FÓRMULA DE HOOK FINAL:
+        [Resumo] + [Preview do próximo] + [Curiosidade/Benefício]
+
+        OUTPUT:
+        - Hooks em cada final de capítulo
+        - Variedade de tipos
+        - Arco de curiosidade
+
+        Atualizar: data/07-reader-journey-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 3: MINIMIZE DROP-OFF
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: minimize_drop_off
+      phase: 3
+      phase_name: "Minimizar Abandono"
+      agent: engagement-designer
+      action: minimize-drop-off
+      creates: data/08-engagement-authority-data.md
+      requires:
+        - data/07-reader-journey-data.md
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @engagement-designer executa a tarefa: *minimize-drop-off
+
+        OBJETIVO:
+        Analisar e resolver pontos potenciais de abandono.
+
+        ZONAS DE RISCO:
+        - Capítulos 3-5: Hype diminuiu, conteúdo mais denso
+        - Meio do livro: Fadiga, tempo para terminar
+        - Transições: Mudança de tom ou metodologia
+        - Capítulos técnicos: Seções muito densas
+
+        ESTRATÉGIAS:
+        - Aceleração inicial: Capítulos curtos no início
+        - Variação de formato: Mix de tipos
+        - Checkpoints: "Você está no meio do caminho"
+        - Recompensas intermediárias
+        - Compromisso recorrente
+
+        OUTPUT:
+        - Zonas de risco identificadas
+        - Intervenções planejadas
+        - Estratégias de recuperação
+
+        Salvar em: data/08-engagement-authority-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 4: ESTABLISH AUTHOR CREDIBILITY
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: establish_author_credibility
+      phase: 4
+      phase_name: "Estabelecer Credibilidade do Autor"
+      agent: authority-builder
+      action: establish-author-credibility
+      creates: data/08-engagement-authority-data.md (updated)
+      requires:
+        - data/04-book-promise-data.md
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @authority-builder executa a tarefa: *establish-author-credibility
+
+        OBJETIVO:
+        Desenvolver estratégias para comunicar expertise.
+
+        ELEMENTOS DE CREDIBILIDADE:
+        - Experiência: "Eu já fiz isso X vezes..."
+        - Resultados: "Meus clientes alcançaram..."
+        - Formação: "Estudei com..."
+        - Reconhecimento: "Featured em..."
+        - História: "Eu também passei por isso..."
+
+        TÉCNICAS "MOSTRAR NÃO CONTAR":
+        - Em vez de "Eu sou especialista": "Em 15 anos trabalhando..."
+        - Em vez de "Funciona": "O resultado: clientes conseguem..."
+
+        OUTPUT:
+        - Estratégia de credibilidade
+        - Bio posicionada
+        - Authority hooks integrados
+
+        Atualizar: data/08-engagement-authority-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 5: GENERATE SOCIAL PROOF
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: generate_social_proof
+      phase: 5
+      phase_name: "Gerar Elementos de Prova Social"
+      agent: authority-builder
+      action: generate-social-proof-elements
+      creates: data/08-engagement-authority-data.md (updated)
+      requires:
+        - data/08-engagement-authority-data.md
+      elicit: true
+      duration_estimate: "20-30 min"
+      notes: |
+        @authority-builder executa a tarefa: *generate-social-proof-elements
+
+        OBJETIVO:
+        Identificar e integrar prova social.
+
+        TIPOS:
+        - Testemunhos: Depoimentos de leitores
+        - Casos de estudo: Histórias de transformação
+        - Números: "X mil leitores"
+        - Reconhecimento: Featured em mídia
+        - Comunidade: Grupos de leitores
+
+        LOCALIZAÇÃO:
+        - Capa: "X pessoas já leram"
+        - Orelha: Depoimentos de autoridade
+        - Introdução: Prova de resultados
+        - Capítulos: Casos relacionados
+
+        OUTPUT:
+        - 3-5 testemunhos no livro
+        - 2-3 casos de estudo
+        - Estratégia de gathering
+
+        Atualizar: data/08-engagement-authority-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 6: ENCOURAGE READER REVIEWS
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: encourage_reader_reviews
+      phase: 6
+      phase_name: "Incentivar Avaliações de Leitores"
+      agent: authority-builder
+      action: encourage-reader-reviews
+      creates: data/08-engagement-authority-data.md (final)
+      requires:
+        - data/08-engagement-authority-data.md
+      elicit: true
+      duration_estimate: "15-20 min"
+      notes: |
+        @authority-builder executa a tarefa: *encourage-reader-reviews
+
+        OBJETIVO:
+        Criar estratégia para gerar avaliações.
+
+        LOCAIS NO LIVRO:
+        - Final do livro: Agradecimento + pedido
+        - Último capítulo: Após leitor sentir transformação
+        - Página de recursos: Link direto
+
+        FORA DO LIVRO:
+        - Email sequence: 0, 7, 14, 30 dias
+        - Redes sociais: Posts periódicos
+        - Comunidade: Grupo de leitores
+
+        OUTPUT:
+        - CTAs posicionados
+        - Sequência de email pronta
+        - Plano de resposta
+
+        Atualizar: data/08-engagement-authority-data.md
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 7: VALIDATION CHECKLIST
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: engagement_authority_checklist
+      phase: 7
+      phase_name: "Validação: Checklist"
+      agent: squad-master
+      action: validate_phase
+      creates: checklist/05-engagement-authority-checklist.md (completed)
+      requires:
+        - data/07-reader-journey-data.md
+        - data/08-engagement-authority-data.md
+      elicit: true
+      duration_estimate: "20 min"
+      notes: |
+        Revisar checklist: checklists/05-engagement-authority-checklist.md
+
+        VERIFICAR:
+        - [ ] Jornada do leitor completa
+        - [ ] Hooks de continuidade em cada capítulo
+        - [ ] Estratégias de redução de abandono
+        - [ ] Credibilidade do autor estabelecida
+        - [ ] Prova social integrada
+        - [ ] Estratégia de reviews criada
+
+        RESULTADO:
+        - APPROVED: Prosseguir para Asset Strategy
+        - NEEDS WORK: Retornar para correções
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # WORKFLOW COMPLETE
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - meta: end
+      action: engagement_authority_complete
+      notes: |
+        ✅ ENGAJAMENTO & AUTORIDADE COMPLETOS!
+
+        Artefatos gerados:
+        ```
+        data/
+        ├── 07-reader-journey-data.md    [Jornada + Engajamento]
+        └── 08-engagement-authority-data.md [Credibilidade + Prova Social]
+        ```
+
+        PRÓXIMOS PASSOS:
+        1. Validar checklist: checklists/05-engagement-authority-checklist.md
+        2. Prosseguir para: Asset Strategy Workflow
+
+        TEMPO TOTAL ESTIMADO: 2-3 horas
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              FLOW DIAGRAM
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Engagement & Authority] --> B[engagement-designer: design reader journey]
+        B --> C[engagement-designer: implement hooks]
+        C --> D[engagement-designer: minimize drop-off]
+        D --> E[authority-builder: establish credibility]
+        E --> F[authority-builder: generate social proof]
+        F --> G[authority-builder: encourage reviews]
+        G --> H{squad-master: Validation}
+        H -->|APPROVED| I[Engagement & Authority Complete]
+        H -->|NEEDS WORK| B
+        
+        style I fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFE4B5
+        style D fill:#FFE4B5
+        style E fill:#FFE4B5
+        style F fill:#FFE4B5
+        style G fill:#FFE4B5
+    ```
+
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+  #                              QUICK REFERENCE
+  # ═══════════════════════════════════════════════════════════════════════════════════════
+
+  quick_reference:
+    fase_1:
+      name: "Projetar Jornada"
+      agent: "@engagement-designer"
+      command: "*design-reader-journey"
+      output: "data/07-reader-journey-data.md"
+      duration: "30-45 min"
+    fase_2:
+      name: "Implementar Hooks"
+      agent: "@engagement-designer"
+      command: "*implement-continuity-hooks"
+      output: "data/07-reader-journey-data.md"
+      duration: "30-45 min"
+    fase_3:
+      name: "Minimizar Abandono"
+      agent: "@engagement-designer"
+      command: "*minimize-drop-off"
+      output: "data/08-engagement-authority-data.md"
+      duration: "20-30 min"
+    fase_4:
+      name: "Estabelecer Credibilidade"
+      agent: "@authority-builder"
+      command: "*establish-author-credibility"
+      output: "data/08-engagement-authority-data.md"
+      duration: "20-30 min"
+    fase_5:
+      name: "Gerar Prova Social"
+      agent: "@authority-builder"
+      command: "*generate-social-proof-elements"
+      output: "data/08-engagement-authority-data.md"
+      duration: "20-30 min"
+    fase_6:
+      name: "Incentivar Reviews"
+      agent: "@authority-builder"
+      command: "*encourage-reader-reviews"
+      output: "data/08-engagement-authority-data.md"
+      duration: "15-20 min"
+    fase_7:
+      name: "Validação Checklist"
+      agent: "@squad-master"
+      command: "validate checklist"
+      output: "checklist/05-engagement-authority-checklist.md"
+      duration: "20 min"
+
+  time_estimate:
+    minimum: "2 horas"
+    typical: "2.5 horas"
+    complex_project: "3 horas"
+
+  handoff_prompts:
+    fase_1_complete: |
+      Fase 1 completa. Jornada do leitor projetada.
+      Próximo: @engagement-designer para implementar hooks (FASE 2)
+
+    fases_1_3_complete: |
+      Fases 1-3 completas. Engajamento estruturado.
+      Próximo: @authority-builder para estabelecer credibilidade (FASE 4)
+
+    fases_4_6_complete: |
+      Fases 4-6 completas. Autoridade estabelecida.
+      Próximo: Validação do checklist (FASE 7)
+
+    workflow_complete: |
+      ✅ ENGAJAMENTO & AUTORIDADE COMPLETOS!
+
+      Próximo: Asset Strategy Workflow
