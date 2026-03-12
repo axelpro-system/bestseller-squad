@@ -1,29 +1,45 @@
-
-
-# Environment & Secrets (AIOX)
-.env
-.env.local
-.env.*.local
-*.key
-*.pem
-
-# Dependencies (AIOX)
+# Dependencies
 node_modules/
-node_modules
+npm-debug.log
+yarn-error.log
 
-# Build & Logs (AIOX)
-dist/
-build/
-*.log
-logs/
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
 
-# IDE & OS (AIOX)
-.DS_Store
-Thumbs.db
+# IDE
+.vscode/
 .idea/
 *.swp
+*.swo
+*~
 
-# AIOX Local (AIOX)
-.aiox-core/local/
-.claude/settings.local.json
-.aiox/install-log.txt
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Temporary files
+~$*
+.~*
+
+# Build outputs
+dist/
+build/
+*.egg
+
+# Environment
+.env
+.env.local
+
+# Temporary conversion scripts
+convert-*.py
+convert-*.js
+~$*.docx
+

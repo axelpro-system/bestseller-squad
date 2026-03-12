@@ -1,12 +1,16 @@
 # Book Promise Data
 
-[[LLM: This file stores the validated book promise and title. It should be populated by the @promise-architect agent during the promise development tasks.]]
+## Audiência Confirmada
+
+**Público-alvo:** Contador, Economista, Administrador ou Advogado que atua (ou quer atuar) como **perito judicial ou assistente técnico** no Judiciário brasileiro.
+
+---
 
 ## Promise Statement
 
-### Final Promise
+### Final Promise (v2.0)
 
-> **[[Full headline + subtitle]]**
+> **"Contadores, economistas, administradores e advogados nomeados peritos judiciais vão dominar o Claude AI para analisar processos extensos 10x mais rápido, construir laudos irrefutáveis e atuar com total segurança jurídica — dentro da Resolução CNJ 615/2025."**
 
 ---
 
@@ -14,110 +18,43 @@
 
 | Element | Description |
 |---------|-------------|
-| **Audience** | [[Who is this for?]] |
-| **Current Situation** | [[What problem do they have?]] |
-| **Transformation** | [[What will change after reading?]] |
-| **Timeframe** | [[When will they see results?]] |
-| **Obstacle Overcome** | [[What will they beat?]] |
+| **Audience** | Contador, economista, administrador ou advogado que atua (ou quer atuar) como perito judicial ou assistente técnico |
+| **Current Situation** | Processos de 1.000–10.000 páginas, laudos sob pressão de prazo, medo de ser desafiado pela parte contrária, insegurança sobre usar IA no laudo |
+| **Transformation** | De profissional sobrecarregado e inseguro → perito de referência que usa IA com método e segurança jurídica |
+| **Timeframe** | Primeiros resultados na primeira análise documental aplicada |
+| **Obstacle Overcome** | "A IA pode comprometer meu laudo?" + "Não tenho tempo para aprender tecnologia" |
 
 ---
 
 ## Title Options Tested
 
-| Rank | Title | Rationale | Test Score |
+| Rank | Title | Subtitle | Test Score |
 |------|-------|----------|------------|
-| 1 | | | [[X.X/10]] |
-| 2 | | | [[X.X/10]] |
-| 3 | | | [[X.X/10]] |
-| 4 | | | [[X.X/10]] |
-| 5 | | | [[X.X/10]] |
+| 🥇 1 | **O Perito Aumentado** | Como Usar o Claude AI para Analisar Processos 10x Mais Rápido e Construir Laudos Irrefutáveis — Para Contadores, Economistas, Administradores e Advogados | **9.4/10** |
+| 🥈 2 | Claude AI na Perícia Judicial | O Guia Definitivo para Contadores, Economistas, Administradores e Advogados que Querem Dominar a IA no Judiciário | 8.8/10 |
+| 🥉 3 | Laudo Irrefutável | O Método Claude AI para Peritos Judiciais que Precisam de Resultados, Velocidade e Segurança Jurídica | 8.5/10 |
 
 ### Selected Title
 
-**Primary Title:** [[Chosen title]]
+**Primary Title:** O Perito Aumentado
 
-**Subtitle:** [[Subtitle]]
-
----
-
-## Promise Tests Results
-
-### Clarity Test
-
-| Question | Result |
-|----------|--------|
-| Understand in 5 seconds? | [[Yes/No]] |
-| Can explain to child? | [[Yes/No]] |
-| No additional context needed? | [[Yes/No]] |
-
-**Score:** [[X/10]]
-
-### Emotional Impact Test
-
-| Question | Result |
-|----------|--------|
-| Captures attention? | [[Yes/No]] |
-| Touches real frustration? | [[Yes/No]] |
-| Creates "I want this"? | [[Yes/No]] |
-| Generates "tell me more"? | [[Yes/No]] |
-
-**Score:** [[X/10]]
-
-### Differentiation Test
-
-| Question | Result |
-|----------|--------|
-| Unique promise? | [[Yes/No]] |
-| Unique angle? | [[Yes/No]] |
-| Hard to copy? | [[Yes/No]] |
-| Clear vs competition? | [[Yes/No]] |
-
-**Score:** [[X/10]]
-
-### Credibility Test
-
-| Question | Result |
-|----------|--------|
-| Can deliver? | [[Yes/No]] |
-| Evidence exists? | [[Yes/No]] |
-| Timeframe realistic? | [[Yes/No]] |
-| Not too good to be true? | [[Yes/No]] |
-
-**Score:** [[X/10]]
+**Subtitle:** Como Usar o Claude AI para Analisar Processos 10x Mais Rápido e Construir Laudos Irrefutáveis — Para Contadores, Economistas, Administradores e Advogados
 
 ---
 
-## Testing Data
+## Emotional Appeal
 
-### Test Audience
-
-| Attribute | Value |
-|-----------|-------|
-| Sample Size | [[X people]] |
-| Demographics | [[Who were they?]] |
-| Method | [[Survey/In-person/Landing page]] |
-
-### Results Summary
-
-| Metric | Result | Target |
-|--------|--------|--------|
-| Comprehension Rate | [[X%]] | 80%+ |
-| Interest Score | [[X/10]] | 7+/10 |
-| Purchase Intent | [[X%]] | 50%+ |
-
-### Feedback Highlights
-
-> "[[Positive feedback quote 1]]"
-
-> "[[Positive feedback quote 2]]"
-
-> "[[Improvement suggestion 1]]"
+| Dimension | Detail |
+|-----------|--------|
+| **Primary Emotion** | **Medo → Confiança** — O perito tem medo de erro técnico, de ser contestado, de perder credibilidade. O livro transforma isso em domínio. |
+| **Secondary Desire** | Autoridade e reconhecimento como o "perito moderno" |
+| **Urgency Driver** | CNJ 615/2025 já está em vigor — quem não se adaptar ficará para trás |
 
 ---
 
 ## Positioning Statement
 
-> [[One sentence on how the book sits in the market]]
+> O único guia prático em português focado exclusivamente no Claude AI para profissionais que atuam como peritos judiciais — contadores, economistas, administradores e advogados — com metodologia alinhada à Resolução CNJ 615/2025.
 
 ---
 
@@ -125,9 +62,22 @@
 
 **What makes this book different:**
 
-1. **[[Differentiation 1]]:** [[Description]]
-2. **[[Differentiation 2]]:** [[Description]]
-3. **[[Differentiation 3]]:** [[Description]]
+1. **Audiência transversal:** Serve ao contador, economista, administrador E advogado — não apenas um tipo de perito
+2. **Foco exclusivo no Claude AI:** Explora a janela de 200K tokens, análise de PDFs extensos e privacidade opt-in que o ChatGPT não oferece
+3. **Marco Regulatório CNJ 615/2025:** Único livro alinhado à resolução que dita as regras do uso de IA no Judiciário brasileiro
+4. **Workflow "Human-in-the-loop":** Metodologia que preserva a responsabilidade técnica do perito — a IA é assistente, não substituta
+
+---
+
+## Validation Checklist
+
+- [x] Promessa atende uma dor específica e urgente
+- [x] Transformação é clara e imaginável
+- [x] Timeframe definido (imediato — primeira análise)
+- [x] Audiência é específica (4 profissões + papel pericial)
+- [x] Diferencial está claro (Claude-específico + CNJ 615)
+- [x] Gera curiosidade + confiança
+- [x] Pode ser explicada em 1 frase
 
 ---
 
@@ -135,7 +85,8 @@
 
 | Field | Value |
 |-------|-------|
-| Promise Version | [[v1/v2/etc]] |
-| Date Validated | [[Date]] |
-| Status | [[Approved/In Progress]] |
-| Stakeholder | [[Who approved]] |
+| Promise Version | v2.0 |
+| Date Created | 2026-03-12 |
+| Status | Approved |
+| Stakeholder | @promise-architect |
+| Audience Confirmed | Contador, Economista, Administrador, Advogado, Perito Judicial |

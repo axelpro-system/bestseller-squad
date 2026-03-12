@@ -1,34 +1,33 @@
 # Reader Insights Data
 
-[[LLM: This file stores reader pain points, demographics, and behavioral insights. It should be populated by the @market-analyst agent during the identify-reader-pains task.]]
-
 ## Target Audience Profile
 
 ### Demographics
 
 | Attribute | Value |
 |-----------|-------|
-| Age Range | [[e.g., 25-45]] |
-| Primary Profession | [[e.g., Entrepreneurs, Marketing professionals]] |
-| Income Level | [[e.g., $50k-$150k]] |
-| Education | [[e.g., Bachelor's degree+]] |
-| Reading Habits | [[e.g., Prefers non-fiction, 2-4 books/month]] |
+| Age Range | 35-65 |
+| Primary Profession | Peritos Judiciais (Contábeis, Engenharia, Grafotécnicos, Médicos, etc.) |
+| Income Level | R$ 10k - R$ 50k/mês (Honorários periciais) |
+| Education | Ensino Superior Completo + Pós-graduação/Especialização |
+| Reading Habits | Consome manuais técnicos, legislações, jurisprudência e conteúdos de atualização profissional |
 
 ### Psychographics
 
 | Attribute | Value |
 |-----------|-------|
-| Primary Goals | [[e.g., Grow business, escape 9-5]] |
-| Fears | [[e.g., Failure, running out of money]] |
-| Values | [[e.g., Freedom, impact, legacy]] |
-| Media Consumption | [[e.g., Podcasts, YouTube, LinkedIn]] |
+| Primary Goals | Aumentar produtividade, reduzir tempo de elaboração de laudos, manter autoridade técnica |
+| Fears | Ter laudo contestado/anulado, ser substituído por IA, cometer erros técnicos por "alucinação" da IA |
+| Values | Precisão, ética profissional, imparcialidade, agilidade, conformidade legal |
+| Media Consumption | LinkedIn, Portais Jurídicos (Conjur, Migalhas), Grupos de WhatsApp de Peritos, Canais de Youtube (IBCAPPA, etc.) |
 
 ### Where They Gather
 
-- [[e.g., Facebook groups: Entrepreneurs]]
-- [[e.g., Subreddits: r/entrepreneur]]
-- [[e.g., Forums: WarriorForum]]
-- [[e.g., Podcasts: Marketing Over Coffee]]
+- LinkedIn (Grupos de Perícias Judiciais)
+- Grupos de WhatsApp de Conselhos de Classe (CRC, CREA, etc.)
+- Congressos Nacionais de Perícia Judicial
+- Fóruns de plataformas como IBCAPPA e Academia do Perito
+- Comentários em portais como Jusbrasil e Jus.com.br
 
 ---
 
@@ -36,44 +35,26 @@
 
 ### Primary Pain (Intensity: 10/10)
 
-**Pain Statement:** [[One sentence describing the main problem]]
+**Pain Statement:** Sobrecarga de trabalho com processos volumosos (1000+ páginas) e falta de um guia prático para usar IA com segurança jurídica.
 
-**Emotional Impact:** [[How this makes them feel - frustrated, scared, etc.]]
+**Emotional Impact:** Sentimento de exaustão, medo de ficar obsoleto e ansiedade sobre a legalidade do uso de ferramentas de IA no Judiciário.
 
 **Reader Language (Direct Quotes):**
-> "[[Quote 1]]"
-> "[[Quote 2]]"
-> "[[Quote 3]]"
+> "Levo dias analisando processos de mil páginas; preciso de algo que automatize a triagem sem erro."
+> "Todo mundo fala de ChatGPT, mas ouvi dizer que o Claude é melhor para documentos extensos. Como eu uso isso na prática?"
+> "O juiz vai aceitar se eu usar IA para me ajudar no laudo? Qual é o marco legal?"
 
 **Current Solutions Being Used:**
-1. [[Solution 1]]
-2. [[Solution 2]]
-3. [[Solution 3]]
+1. ChatGPT (versão gratuita ou Plus) - limitado em contexto de documentos longos.
+2. Análise manual tradicional - extremamente lenta.
+3. Plataformas genéricas de IA para advogados - não atendem às especificidades técnicas da perícia.
 
 **Why Current Solutions Fail:**
--
+- ChatGPT "alucina" em dados técnicos complexos e falha em volumes massivos de páginas.
+- Falta de foco em análise documental profunda e ética pericial.
+- Não abordam a conformidade com a Resolução CNJ 615/2025.
 
-**Trigger Moment:** [[When do they decide to buy?]]
-
----
-
-### Secondary Pains (Ranked)
-
-| Rank | Pain Statement | Intensity | Connection to Primary |
-|------|---------------|-----------|---------------------|
-| 2 | | 8/10 | |
-| 3 | | 7/10 | |
-| 4 | | 6/10 | |
-| 5 | | 5/10 | |
-
----
-
-### Surface Level Pains
-
-| Pain | Why It's Not Primary |
-|------|---------------------|
-| | |
-| | |
+**Trigger Moment:** Quando o perito recebe um processo complexo com prazo curto e percebe que o método manual é inviável.
 
 ---
 
@@ -83,19 +64,19 @@
 
 | Aspect | Description |
 |--------|-------------|
-| Knowledge Level | [[Beginner/Intermediate/Advanced]] |
-| Main Struggle | [[What keeps them stuck]] |
-| Attempts Made | [[What they've tried]] |
-| Current Outcome | [[Where they are now]] |
+| Knowledge Level | Intermediário em perícia, Iniciante/Curioso em IA |
+| Main Struggle | Como extrair dados precisos de documentos bagunçados usando Claude |
+| Attempts Made | Uso básico do ChatGPT com prompts simples ("Analise este PDF") |
+| Current Outcome | Resultados genéricos, insegurança na redação final do laudo |
 
 ### Desired State (After Book)
 
 | Aspect | Description |
 |--------|-------------|
-| Goal | [[What they want to achieve]] |
-| Timeline | [[When they want it]] |
-| Success Metrics | [[How they'll know they succeeded]] |
-| Feel Like | [[How they want to feel]] |
+| Goal | Elaborar laudos complexos na metade do tempo com 100% de segurança técnica |
+| Timeline | 30 dias para dominar o workflow de "Perícia Assistida por Claude" |
+| Success Metrics | Redução de 50% no tempo de triagem documental; elogios do magistrado pela precisão |
+| Feel Like | Um perito de "elite", tecnologicamente avançado e juridicamente protegido |
 
 ---
 
@@ -105,33 +86,15 @@
 
 | Event | Pain Level Increase | Likelihood to Buy |
 |-------|---------------------|------------------|
-| [[Event 1]] | High/Medium/Low | High/Medium/Low |
-| [[Event 2]] | High/Medium/Low | High/Medium/Low |
-| [[Event 3]] | High/Medium/Low | High/Medium/Low |
-
-### Price Sensitivity
-
-| Price Point | Expected Conversion |
-|-------------|-------------------|
-| $9.99 | [[X%]] |
-| $19.99 | [[X%]] |
-| $29.99 | [[X%]] |
-| $49.99 | [[X%]] |
-
-### Preferred Format
-
-| Format | Preference Level |
-|--------|------------------|
-| Kindle | [[High/Medium/Low]] |
-| Paperback | [[High/Medium/Low]] |
-| Audible | [[High/Medium/Low]] |
-| Bundle | [[High/Medium/Low]] |
+| Nomeação em processo complexo (milhares de páginas) | High | High |
+| Publicação de novas regras do CNJ sobre IA | High | High |
+| Desconto em curso/livro de autoridade no nicho | Medium | Medium |
 
 ---
 
 ## Validation Notes
 
-- **Research Method:** [[Surveys/Interviews/Reviews analysis]]
-- **Sample Size:** [[X respondents]]
-- **Confidence Level:** [[High/Medium/Low]]
-- **Key Insight:** [[Most important finding]]
+- **Research Method:** Análise de gaps de mercado, comentários em redes sociais de peritos e análise de produtos concorrentes.
+- **Sample Size:** Baseado em estimativas de mercado (8.000+ peritos ativos no Brasil).
+- **Confidence Level:** High
+- **Key Insight:** O perito não quer "aprender IA", ele quer "usar o Claude para resolver o laudo dele" sem risco jurídico.

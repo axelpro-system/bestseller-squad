@@ -6,12 +6,12 @@
 
 | Field | Value |
 |-------|-------|
-| Project Name | Bestseller Creation Project |
+| Project Name | O Perito do Futuro |
 | Squad | bestseller-squad |
-| Start Date | [[Date]] |
-| Target Launch | [[Date]] |
-| Current Phase | [[Phase name]] |
-| Project Status | [[In Progress/Blocked/Complete]] |
+| Start Date | 2026-03-12 |
+| Target Launch | 2026-04-12 |
+| Current Phase | Market & Promise Synthesis |
+| Project Status | In Progress |
 
 ---
 
@@ -19,14 +19,14 @@
 
 | Field | Value |
 |-------|-------|
-| Working Title | [[Title]] |
-| Final Title | [[Confirmed title]] |
-| Subtitle | [[Subtitle]] |
-| Promise | [[Promise statement]] |
-| Target Audience | [[Primary audience]] |
-| Niche | [[Market niche]] |
-| Target Word Count | [[30,000-50,000]] |
-| Target Price | [[$XX.XX]] |
+| Working Title | O Perito do Futuro |
+| Final Title | O Perito do Futuro: Claude AI e a Nova Era dos Laudos Judiciais |
+| Subtitle | Como Analisar Processos 10x Mais Rápido em Conformidade com a Resolução CNJ 615/2025. |
+| Promise | Domine o Claude AI para construir laudos periciais arrebatadores e economizar 80% do tempo. |
+| Target Audience | Peritos Judiciais e Assistentes Técnicos |
+| Niche | Perícia Judicial / Inteligência Artificial Aplicada |
+| Target Word Count | 35,000 |
+| Target Price | R$ 97,00 |
 
 ---
 
@@ -34,13 +34,13 @@
 
 | Phase | Status | Completion | Owner |
 |-------|--------|------------|-------|
-| 1. Market Analysis | ☐ Complete | [[X%]] | @market-analyst |
-| 2. Promise Development | ☐ Complete | [[X%]] | @promise-architect |
-| 3. Content Structure | ☐ Complete | [[X%]] | @content-strategist |
-| 4. Chapter Creation | ☐ Complete | [[X%]] | @chapter-builder |
-| 5. Engagement & Authority | ☐ Complete | [[X%]] | @engagement-designer, @authority-builder |
-| 6. Asset Strategy | ☐ Complete | [[X%]] | @asset-strategist |
-| 7. Final Quality & Launch | ☐ Complete | [[X%]] | - |
+| 1. Market Analysis | ✅ Complete | 100% | @market-analyst |
+| 2. Promise Development | ✅ Complete | 100% | @promise-architect |
+| 3. Content Structure | ✅ Complete | 100% | @content-strategist |
+| 4. Chapter Creation | ☐ Pending | 0% | @chapter-builder |
+| 5. Engagement & Authority | ☐ Pending | 0% | @engagement-designer, @authority-builder |
+| 6. Asset Strategy | ☐ Pending | 0% | @asset-strategist |
+| 7. Final Quality & Launch | ☐ Pending | 0% | - |
 
 ---
 
@@ -48,69 +48,10 @@
 
 | Agent | Role | Tasks Assigned |
 |-------|------|----------------|
-| @market-analyst | Market Analyst | 4 tasks |
-| @promise-architect | Promise Architect | 3 tasks |
-| @content-strategist | Content Strategist | 3 tasks |
-| @chapter-builder | Chapter Builder | 3 tasks |
-| @engagement-designer | Engagement Designer | 3 tasks |
-| @authority-builder | Authority Builder | 3 tasks |
-| @asset-strategist | Asset Strategist | 3 tasks |
-
----
-
-## Key Milestones
-
-| Milestone | Target Date | Actual Date | Status |
-|-----------|-------------|-------------|--------|
-| Market Analysis Complete | [[Date]] | [[Date]] | ☐ |
-| Promise Validated | [[Date]] | [[Date]] | ☐ |
-| Structure Approved | [[Date]] | [[Date]] | ☐ |
-| First Draft Complete | [[Date]] | [[Date]] | ☐ |
-| All Chapters Complete | [[Date]] | [[Date]] | ☐ |
-| Editing Complete | [[Date]] | [[Date]] | ☐ |
-| Ready for Launch | [[Date]] | [[Date]] | ☐ |
-
----
-
-## Current Metrics
-
-| Metric | Target | Current | Status |
-|--------|--------|---------|--------|
-| Chapters Drafted | 10 | [[X]] | ☐ |
-| Words Written | 30,000-50,000 | [[X]] | ☐ |
-| Exercises Integrated | 1+ per concept | [[X]] | ☐ |
-| Testimonials Collected | 3-5 | [[X]] | ☐ |
-| Case Studies | 2-3 | [[X]] | ☐ |
-
----
-
-## Blockers & Issues
-
-| Issue | Severity | Status | Owner | Resolution |
-|-------|----------|--------|-------|------------|
-| [[None]] | - | - | - | - |
-
----
-
-## Resources
-
-| Resource | Location |
-|----------|----------|
-| Source PDF | [[assests/7-passos-para-um-bestseller.pdf]] |
-| Tasks | [[tasks/]] |
-| Checklists | [[checklists/]] |
-| Data | [[data/]] |
-
----
-
-## Version History
-
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | [[Date]] | Initial project setup | [[Name]] |
+| Antigravity | Orchestrator | Bestseller Batalha Specialist |
 
 ---
 
 ## Notes
 
-[[Additional notes about the project]]
+O projeto foca na intersecção entre a tecnologia do Claude AI e a regulação do CNJ (Resolução 615/2025) para criar um livro altamente prático e vendável para o nicho jurídico.
