@@ -52,7 +52,7 @@ Antes de começar, certifique-se de ter instalado:
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/EBOOK-SQUAD.git
+git clone [https://github.com/seu-usuario/EBOOK-SQUAD.git](https://github.com/axelpro-system/bestseller-squad)
 cd EBOOK-SQUAD
 ```
 
