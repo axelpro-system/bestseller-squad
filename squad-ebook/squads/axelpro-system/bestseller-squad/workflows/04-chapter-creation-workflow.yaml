@@ -176,11 +176,73 @@ workflow:
         - Verificar se todas vitórias integradas
 
     # ═══════════════════════════════════════════════════════════════════════════════════════
-    # PHASE 5: VALIDATION CHECKLIST
+    # PHASE 5: EDITORIAL REVIEW
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+
+    - step: editorial_review
+      phase: 5
+      phase_name: "Revisão Editorial"
+      agent: book-editor
+      action: editorial-review
+      creates: chapters/[chapter-X].md (edited)
+      requires:
+        - chapters/[chapter-X].md (with exercises and victories)
+        - data/04-book-promise-data.md
+        - data/05-book-structure-data.md
+      elicit: true
+      repeats: for_each_chapter
+      duration_estimate: "1.5-2.5 hours per chapter"
+      notes: |
+        @book-editor executa revisão editorial completa em 5 passes:
+
+        PASS 1 - DEVELOPMENTAL REVIEW (15-20 min):
+        - Capítulo entrega seu objetivo?
+        - Argumento é lógico e bem estruturado?
+        - Hook funciona? Bridge para próximo capítulo funciona?
+        - Conteúdo avança a promessa do livro?
+
+        PASS 2 - STRUCTURAL EDIT (15-20 min):
+        - Corrigir problemas de pacing
+        - Suavizar transições entre seções
+        - Verificar scaffolding (simples → complexo)
+        - Subheadings claros e descritivos
+
+        PASS 3 - LINE EDIT (30-45 min):
+        - Eliminar redundâncias
+        - Fortalecer verbos fracos
+        - Remover qualificadores desnecessários
+        - Variar comprimento de sentenças
+        - Converter passiva → ativa
+
+        PASS 4 - COPY EDIT (20-30 min):
+        - Gramática e sintaxe
+        - Pontuação e capitalização
+        - Concordância verbal/nominal
+        - Consistência de tempo verbal
+        - Ortografia e typos
+
+        PASS 5 - CONSISTENCY CHECK (10-15 min):
+        - Terminologia uniforme
+        - Tom consistente com capítulos anteriores
+        - Formatação padronizada
+        - Referências cruzadas corretas
+
+        OUTPUT:
+        - Capítulo editado (sobrescreve draft)
+        - Relatório editorial com score
+        - Checklist: checklists/04b-book-editing-checklist.md
+
+        VERDICTS:
+        - PASS (16+/20): Prosseguir para Engagement Designer
+        - NEEDS REVISION (12-15): Re-editar seções específicas
+        - REQUIRES REWRITE (<12): Retornar ao Chapter Builder
+
+    # ═══════════════════════════════════════════════════════════════════════════════════════
+    # PHASE 6: VALIDATION CHECKLIST
     # ═══════════════════════════════════════════════════════════════════════════════════════
 
     - step: chapter_creation_checklist
-      phase: 5
+      phase: 6
       phase_name: "Validação: Checklist"
       agent: squad-master
       action: validate_phase
@@ -244,14 +306,18 @@ workflow:
         C --> D[chapter-builder: add exercises]
         D --> E[chapter-builder: add victories]
         E --> B
-        B -->|All chapters done| F{squad-master: Validation}
-        F -->|APPROVED| G[Chapter Creation Complete]
-        F -->|NEEDS WORK| C
-        
-        style G fill:#90EE90
+        B -->|All chapters done| F[book-editor: editorial review]
+        F -->|PASS| G{squad-master: Validation}
+        F -->|NEEDS REVISION| F
+        F -->|REQUIRES REWRITE| C
+        G -->|APPROVED| H[Chapter Creation Complete]
+        G -->|NEEDS WORK| C
+
+        style H fill:#90EE90
         style C fill:#FFE4B5
         style D fill:#FFE4B5
         style E fill:#FFE4B5
+        style F fill:#ADD8E6
     ```
 
   # ═══════════════════════════════════════════════════════════════════════════════════════
@@ -284,6 +350,12 @@ workflow:
       output: "all chapters complete"
       duration: "varies"
     fase_5:
+      name: "Revisão Editorial"
+      agent: "@book-editor"
+      command: "*editorial-review"
+      output: "chapters/[chapter-X].md (edited) + editorial report"
+      duration: "1.5-2.5 hours per chapter"
+    fase_6:
       name: "Validação Checklist"
       agent: "@squad-master"
       command: "validate checklist"

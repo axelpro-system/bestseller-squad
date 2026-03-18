@@ -38,8 +38,10 @@ components:
     - promise-architect.md
     - content-strategist.md
     - chapter-builder.md
+    - book-editor.md
     - engagement-designer.md
     - authority-builder.md
+    - editorial-designer.md
     - asset-strategist.md
   workflows: []
   checklists: []
